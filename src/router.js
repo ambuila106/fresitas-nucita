@@ -19,10 +19,10 @@ export default new Router({
       component: Home
     },
     {
-      path: '/amburguer',
-      name: 'amburguer',
+      path: '/fresita-nucita',
+      name: 'fresita-nucita',
       component: App,
-      meta: { title: "Amburguer" },
+      meta: { title: "fesita" },
       children: [
         {
           path: '/',

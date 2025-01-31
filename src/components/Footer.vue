@@ -1,7 +1,7 @@
 <template>
   <div class="footer" @click="click()">
     <div class="cart">
-      <span>
+      <span style="color: white">
         {{ totalProducts }}
       </span>
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-check-fill me-3" viewBox="0 0 16 16">
@@ -47,7 +47,7 @@ export default {
 <style>
 .footer {
   height: 60px;
-  background-color: #ef233c;
+  background-color: #fbced1;
   box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.05);
   width: 100%;
   position: fixed;
@@ -56,7 +56,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #edf2f4;
+  color: #36110b;
+  font-weight: 600;
 }
 
 .cart {
@@ -64,7 +65,7 @@ export default {
 }
 
 .cart span{
-  background-color: #2b2d42;
+  background-color: #36110b;
   position: absolute;
   border-radius: 47px;
   width: 25px;

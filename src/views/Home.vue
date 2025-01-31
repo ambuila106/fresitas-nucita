@@ -12,6 +12,8 @@
         class="mb-3"
         @addProduct="addProduct"
         :id="product.id"
+        :max="product.max"
+        :isExtra="product.isExtra"
       />
     </div>
     <Footer @click="toggleModalCart()" />
@@ -47,8 +49,8 @@ export default {
   async mounted() {},
 
   methods: {
-    addProduct(id){
-      this.$store.commit('addProduct', id)
+    addProduct({id, toppings}){
+      this.$store.commit('addProduct', {id, toppings })
     },
 
     deleteProduct(id){
@@ -74,19 +76,21 @@ export default {
   color: white;
 }
 .home {
-  background-color: #f3f3f3;
+  background-color: #b51d6d;
   min-height: 100vh;
   display: flex;
   justify-content: center;
 }
 
 .products {
-  padding: 90px 25px;
+  padding: 200px 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  max-width: 700px;
+  max-width: 900px;
+  gap: 20px;
 }
+
 
 .slide-fade-enter-active {
   transition: all .3s ease;

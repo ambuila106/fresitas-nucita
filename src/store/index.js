@@ -9,67 +9,90 @@ const store = new Vuex.Store({
     cart: [],
     products:[
       {
-        id: 1,
-        image: "https://i.imgur.com/ww7iD0L.png",
-        name: "La Detonadora",
-        description: "Pan artesanal, carne de res, tocino, queso cheddar, cebolla sofrita, lechuga, tomate, salsa de maíz, salsa de tomate y mayonesa",
-        price: 15900,
+        id: 2,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Tradicional chocolate negro",
+        description: "Fresa en vaso + chocolate negro",
+        price: 13000,
         category: "general",
+        max: 1,
       },
       {
-        id: 2,
-        image: "https://i.imgur.com/ww7iD0L.png",
-        name: "La Boff",
-        description: "Pan artesanal, huevo, carne de res, tocino, queso cheddar, cebolla sofrita, lechuga, tomate, salsa de maíz, salsa de tomate y mayonesa",
-        price: 17900,
+        id: 1,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Tradicional chocolate blanco",
+        description: "Fresa en vaso + chocolate blanco",
+        price: 17000,
         category: "general",
+        max: 1,
       },
       {
         id: 3,
-        image: "https://i.imgur.com/ww7iD0L.png",
-        name: "La Quesuda",
-        description: "Pan artesanal, doble carne de res, tocino, doble queso cheddar, cebolla sofrita, lechuga, tomate, salsa de maíz, salsa de tomate y mayonesa",
-        price: 20900,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas capricho",
+        description: "Fresa en vaso + chocolate negro + 1 Topping",
+        max: 2,
+        price: 14000,
         category: "general",
+        isExtra: true
       },
       {
         id: 4,
-        image: "https://i.imgur.com/ww7iD0L.png",
-        name: "La Parchada",
-        description: "Pan artesanal, carne de res, queso cheddar, salsa de maíz, salsa de tomate, mayonesa.",
-        price: 13900,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas Love",
+        description: "Fresa en vaso + chocolate negro + 2 Topping",
+        max: 3,
+        price: 15000,
         category: "general",
+        isExtra: true
       },
       {
         id: 5,
-        image: "https://i.imgur.com/yvWhOMY.png",
-        name: "Papas a la francesa",
-        description: "",
-        price: 5000,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas Tentación",
+        description: "Fresa en vaso + chocolate negro + 3 Topping",
+        max: 4,
+        price: 16000,
         category: "general",
+        isExtra: true
       },
       {
         id: 6,
-        image: "https://i.imgur.com/ziDHlUw.png",
-        name: "Cocacola 500ml",
-        description: "",
-        price: 5000,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas Fantasía",
+        description: "Fresa en vaso + chocolate blanco + 1 Topping",
+        max: 2,
+        price: 18000,
         category: "general",
+        isExtra: true
       },
       {
         id: 7,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas Cielo",
+        description: "Fresa en vaso + chocolate blanco + 2 Topping",
+        max: 3,
+        price: 19000,
+        category: "general",
+        isExtra: true
+      },
+      {
+        id: 8,
+        image: "https://i.imgur.com/Hir5OZZ.png",
+        name: "Fresas Delirio Explosivo",
+        description: "Fresa en vaso + chocolate blanco + 3 Topping",
+        max: 4,
+        price: 20000,
+        category: "general",
+        isExtra: true
+      },
+      {
+        id: 9,
         image: "https://i.imgur.com/4lzYHXv.png",
-        name: "Agua Brisa 600ml",
+        name: "Agua",
         description: "",
-        price: 3000,
-        category: "general",
-      },
-      {
-        id: 7,
-        image: "https://i.imgur.com/csijelq.png",
-        name: "Licuado frutos amarillos",
-        description: "",
-        price: 6000,
+        max: 0,
+        price: 5000,
         category: "general",
       },
     ]
@@ -78,15 +101,9 @@ const store = new Vuex.Store({
     increment (state) {
       state.count++
     },
-    addProduct(state, id) {
+    addProduct(state, {id, toppings}) {
       const product = state.products.find(product => product.id === id)
-      const existProductIndex = state.cart.findIndex(product => product.id === id);
-
-      if (existProductIndex !== -1) {
-        state.cart[existProductIndex].amount++;
-      } else {
-        state.cart.push({ ...product, amount: 1 });
-      }
+      state.cart.push({ ...product, amount: 1, toppings });
     },
 
     deleteProduct(state, id) {

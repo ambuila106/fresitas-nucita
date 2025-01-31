@@ -1,9 +1,8 @@
 <template>
   <div class="header">
     <div class="header__logo">
-      <img src="https://i.imgur.com/3ByC2Jc_d.webp?maxwidth=760&fidelity=grand" alt="">
+      <img src="https://i.imgur.com/c3s7OaG.png" alt="">
     </div>
-    <span class="header__title"></span>
   </div>
 </template>
 <script>
@@ -31,9 +30,8 @@ export default {
 
 <style>
 .header {
-  padding: 10px 30px;
-  height: 70px;
-  background-color: white;
+  height: 150px;
+  background-color: #fbced1;
   box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.05);
   width: 100%;
   position: fixed;
@@ -43,13 +41,15 @@ export default {
 }
 
 .header__logo {
-  margin: 7px 0 0 20px;
-  width: 250px;
-  object-fit: cover;
+  height: 150px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .header__logo img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .header__title {

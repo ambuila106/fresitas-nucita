@@ -32,11 +32,16 @@ export default {
     getTextOrder() {
       let mensajePedido = "Hola, este es mi pedido:\n";
 
-      this.$store.state.cart.forEach(producto => {
-        const nombreProducto = producto.name;
-        const cantidadProducto = producto.amount;
+      this.$store.state.cart.forEach(product => {
+        const nombreProducto = product.name;
+        const cantidadProducto = product.amount;
+        let toppings = "";
 
-        mensajePedido += `${cantidadProducto} ${nombreProducto}, `;
+        product.toppings.forEach(topping =>{
+          toppings += " " + topping + ","
+        })
+
+        mensajePedido += `${cantidadProducto} ${nombreProducto}. *Toppings*: ${toppings} \n`;
       });
 
       const mensajeFinal = mensajePedido.slice(0, -2) + "\n\nComo puedo continuar?";
@@ -46,7 +51,7 @@ export default {
     },
 
     finalizeOrder(){
-      let number = 3214020472
+      let number = 3204780363
       let order = this.getTextOrder()
       window.location.href = 'https://wa.me/' + "57" + number + "?text=" + order
     }
